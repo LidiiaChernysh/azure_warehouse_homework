@@ -1,0 +1,14 @@
+/* create user and schema*/
+IF (SELECT schema_id FROM sys.schemas WHERE name = 'chernysh_schema')  IS NOT NULL
+DROP SCHEMA chernysh_schema
+GO 
+CREATE SCHEMA chernysh_schema
+GO 
+IF  EXISTS (SELECT name FROM sys.database_principals WHERE name = 'chernysh')
+DROP USER [chernysh]
+GO 
+CREATE USER [chernysh] FOR LOGIN [chernysh] WITH DEFAULT_SCHEMA=[chernysh_schema]
+GO
+EXEC sp_addrolemember N'db_owner', N'chernysh'
+EXEC sp_addrolemember N'xlargerc', N'chernysh'
+GO
