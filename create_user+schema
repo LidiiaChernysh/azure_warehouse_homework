@@ -1,3 +1,8 @@
+/* create login */
+CREATE LOGIN [chernysh] WITH PASSWORD = '8fdKJl3$nlNv3049jsKK'
+GO
+
+
 /* create user and schema*/
 IF (SELECT schema_id FROM sys.schemas WHERE name = 'chernysh_schema')  IS NOT NULL
 DROP SCHEMA chernysh_schema
