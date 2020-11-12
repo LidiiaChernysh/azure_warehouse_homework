@@ -11,7 +11,6 @@ GO
 -- Create an external data source with CREDENTIAL option.
 CREATE EXTERNAL DATA SOURCE chernyshl_blob
 WITH
-  ( LOCATION = 'abfss://chernysh@newdatalakegen2.blob.core.windows.net/' ,
-    CREDENTIAL = AzureStorageChernyshL ,
-    TYPE = HADOOP
-  ) ;
+  (LOCATION = 'abfss://chernysh@newdatalakegen2.blob.core.windows.net/' ,
+   CREDENTIAL = AzureStorageChernyshL ,
+   TYPE = HADOOP) ;
