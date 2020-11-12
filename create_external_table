@@ -1,13 +1,10 @@
 CREATE EXTERNAL FILE FORMAT file_format_chernysh
-  WITH (
-    FORMAT_TYPE = DELIMITEDTEXT,
+  WITH (FORMAT_TYPE = DELIMITEDTEXT,
     FORMAT_OPTIONS (FIELD_TERMINATOR = ',',
-    First_Row = 2)
-  );
+    First_Row = 2));
 
 CREATE EXTERNAL TABLE sqldwschool.chernysh_schema.external_table_chernysh
-(
-  VendorID int,
+ (VendorID int,
   tpep_pickup_datetime datetime,
   tpep_dropoff_datetime datetime,
   passenger_count int,
@@ -24,10 +21,8 @@ CREATE EXTERNAL TABLE sqldwschool.chernysh_schema.external_table_chernysh
   tolls_amount float(24),
   improvement_surcharge float(24),
   total_amount float(24),
-  congestion_surcharge float(24)
-)
-  WITH (
-    LOCATION = '/folder_yellow/yellow_tripdata_2020-01.csv',
-    DATA_SOURCE = chernyshl_blob,
-    FILE_FORMAT = file_format_chernysh
-  )
+  congestion_surcharge float(24))
+  
+  WITH (LOCATION = '/folder_yellow/yellow_tripdata_2020-01.csv',
+        DATA_SOURCE = chernyshl_blob,
+        FILE_FORMAT = file_format_chernysh)
