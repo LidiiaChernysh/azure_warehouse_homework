@@ -1,0 +1,33 @@
+CREATE EXTERNAL FILE FORMAT file_format_chernysh
+  WITH (
+    FORMAT_TYPE = DELIMITEDTEXT,
+    FORMAT_OPTIONS (FIELD_TERMINATOR = ',',
+    First_Row = 2)
+  );
+
+CREATE EXTERNAL TABLE sqldwschool.chernysh_schema.external_table_chernysh
+(
+  VendorID int,
+  tpep_pickup_datetime datetime,
+  tpep_dropoff_datetime datetime,
+  passenger_count int,
+  Trip_distance float(24),
+  RatecodeID int,
+  store_and_fwd_flag  char(1),
+  PULocationID int,
+  DOLocationID int,
+  payment_type int,
+  fare_amount float(24),
+  extra float(24),
+  mta_tax float(24),
+  tip_amount float(24),
+  tolls_amount float(24),
+  improvement_surcharge float(24),
+  total_amount float(24),
+  congestion_surcharge float(24)
+)
+  WITH (
+    LOCATION = '/folder_yellow/yellow_tripdata_2020-01.csv',
+    DATA_SOURCE = chernyshl_blob,
+    FILE_FORMAT = file_format_chernysh
+  )
