@@ -1,0 +1,17 @@
+-- Create a database master key if one does not already exist, using your own password. This key is used to encrypt the credential secret in next step.
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '8fdKJl3$nlNv3049jsKK'
+GO
+
+-- Create a database scoped credential with Azure storage account key as the secret.
+CREATE DATABASE SCOPED CREDENTIAL AzureStorageChernyshL
+WITH
+  IDENTITY = 'newdatalakegen2' ,
+  SECRET = 'lKP33q2AHp9QxUAXL2NaKKygdxqn7PxsYktxTeAnAuFAeMt1QYNV4czaWoIof+0BgduwczrAqLLbFcw0PaNuSw==' ;
+GO
+-- Create an external data source with CREDENTIAL option.
+CREATE EXTERNAL DATA SOURCE chernyshl_blob
+WITH
+  ( LOCATION = 'abfss://chernysh@newdatalakegen2.blob.core.windows.net/' ,
+    CREDENTIAL = AzureStorageChernyshL ,
+    TYPE = HADOOP
+  ) ;
