@@ -1,5 +1,5 @@
 -- Create a database master key if one does not already exist, using your own password. This key is used to encrypt the credential secret in next step.
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = '8fdKJl3$nlNv3049jsKK'
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'PASSWORD'
 GO
 
 -- Create a database scoped credential with Azure storage account key as the secret.
