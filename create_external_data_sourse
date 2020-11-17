@@ -5,8 +5,8 @@ GO
 -- Create a database scoped credential with Azure storage account key as the secret.
 CREATE DATABASE SCOPED CREDENTIAL AzureStorageChernyshL
 WITH
-  IDENTITY = 'newdatalakegen2' ,
-  SECRET = 'lKP33q2AHp9QxUAXL2NaKKygdxqn7PxsYktxTeAnAuFAeMt1QYNV4czaWoIof+0BgduwczrAqLLbFcw0PaNuSw==' ;
+  IDENTITY = NAME DATALAKE ,
+  SECRET = ACCESS KEY;
 GO
 -- Create an external data source with CREDENTIAL option.
 CREATE EXTERNAL DATA SOURCE chernyshl_blob
