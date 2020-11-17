@@ -3,7 +3,7 @@
 --RateCode(поля ID, Name) 
 --Payment_type (поля ID, Name) 
 
-/*CREATE TABLE chernysh_schema.Vendor
+CREATE TABLE chernysh_schema.Vendor
 WITH (CLUSTERED COLUMNSTORE INDEX,
       DISTRIBUTION =  REPLICATE) AS
 SELECT DISTINCT VendorID AS ID
@@ -24,9 +24,7 @@ INSERT INTO chernysh_schema.Vendor (ID, Name)
 SELECT  1,  'Creative Mobile Technologies, LLC' 
 UNION ALL
 SELECT  2,  'VeriFone Inc.'
-EXCEPT (SELECT * FROM chernysh_schema.Vendor)*/
-
-
+EXCEPT (SELECT * FROM chernysh_schema.Vendor)
 
 
 CREATE TABLE chernysh_schema.RateCode
@@ -62,7 +60,6 @@ SELECT 5, 'Negotiated fare'
 UNION ALL
 SELECT 6, 'Group ride'
 EXCEPT (SELECT * FROM chernysh_schema.Vendor)
-
 
 
 CREATE TABLE chernysh_schema.Payment_type
